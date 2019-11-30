@@ -25,7 +25,7 @@ class Products(Resource):
 			prod.append(json_data)
 		cur.connection.commit()
 		cur.close()
-		return make_response(render_template('order.html',val=prod))
+		return prod
 
 	def post(self,_id):
 		self.id=_id
