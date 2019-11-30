@@ -1,4 +1,5 @@
 Flask
-Flask-Restful
-Flask-MySQL
+Flask-RESTful
+Flask-JWT
+Flask-MySQLDB
 uwsgi
