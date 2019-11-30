@@ -1,16 +1,14 @@
 from flask import Flask,request, jsonify, render_template, request, make_response
 from flask_restful import Api, Resource
 from flask_mysqldb import MySQL
-import yaml
 
 app=Flask(__name__)
 api=Api(app)
 
-db=yaml.load(open('db.yaml'))
-app.config['MYSQL_HOST']=db['mysql_host']
-app.config['MYSQL_USER']=db['mysql_user']
-app.config['MYSQL_PASSWORD']=db['mysql_pass']
-app.config['MYSQL_DB']=db['mysql_db']
+app.config['MYSQL_HOST']= 'localhost'
+app.config['MYSQL_USER']= 'root'
+app.config['MYSQL_PASSWORD']= ''
+app.config['MYSQL_DB']= 'product'
 database=MySQL(app)
 
 prod=[]
