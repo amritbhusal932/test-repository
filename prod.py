@@ -5,24 +5,14 @@ from flask_mysqldb import MySQL
 app=Flask(__name__)
 api=Api(app)
 
-app.config['MYSQL_HOST']= 'localhost'
-app.config['MYSQL_USER']= 'root'
-app.config['MYSQL_PASSWORD']= ''
-app.config['MYSQL_DB']= 'product'
-database=MySQL(app)
 
-prod=[]
+
+prod=[{'id' : 1,
+      'name' : 'Chair',
+      'price' : 230}]
 
 class Products(Resource):
-	def get(self):
-		cur=database.connection.cursor()
-		cur.execute("Select * from product")		
-		data=cur.fetchall()
-		for row in data:
-			json_data= {'id': row[0], 'name' : row[1],'price': row[2]}
-			prod.append(json_data)
-		cur.connection.commit()
-		cur.close()
+	def get(self):	
 		return prod
 
 	def post(self,_id):
